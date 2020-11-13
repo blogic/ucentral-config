@@ -1,0 +1,213 @@
+{
+	"phy": [
+		{
+			"band": "2",
+			"cfg": {
+				"disabled": 0,
+				"country": "DE",
+				"channel": 6,
+				"txpower": 30,
+				"beacon_int": 100,
+				"htmode": "HT20",
+				"hwmode": "11g",
+				"chanbw": 20,
+				"require_mode": "n",
+				"txantenna": 0,
+				"rxantenna": 0,
+				"legacy_rates": 0
+			}
+		}, {
+			"band": "5",
+			"cfg": {
+				"disabled": 0,
+				"country": "DE",
+				"channel": 0,
+				"htmode": "VHT80"
+			}
+		}, {
+			"band": "5u",
+			"cfg": {
+				"disabled": 0,
+				"country": "DE",
+				"channel": 100,
+				"htmode": "VHT80"
+			}
+		}, {
+			"band": "5l",
+			"cfg": {
+				"disabled": 0,
+				"country": "DE",
+				"channel": 36,
+				"htmode": "VHT80"
+			}
+		}
+	],
+	"ssid" : [
+		{
+			"band": [ "2" ],
+			"cfg": {
+				"ssid": "uSync-Guest",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"isolate": 1,
+				"network": "guest"
+			}
+		}, {
+			"band": [ "2" ],
+			"cfg": {
+				"ssid": "uSync-Guest.200",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"isolate": 1,
+				"network": "guest200"
+			}
+		}, {
+			"band": [ "2" ],
+			"cfg": {
+				"ssid": "uSync-NAT",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"network": "nat"
+			}
+		}, {
+			"band": [ "2" ],
+			"cfg": {
+				"ssid": "uSync-NAT.200",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"network": "nat200"
+			}
+		}, {
+			"band": [ "5l" ],
+			"cfg": {
+				"ssid": "uSync-Bridge",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"network": "wan"
+			}
+		}, {
+			"band": [ "5l" ],
+			"cfg": {
+				"ssid": "uSync-Bridge.200",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"network": "wan200"
+			}
+		}, {
+			"band": [ "5l" ],
+			"cfg": {
+				"ssid": "uSync",
+				"encryption": "psk2",
+				"key": "WirelessFreedom",
+				"mode": "ap",
+				"network": "lan"
+			}
+		}, {
+			"mode": "nat",
+			"band": [ "5u" ],
+			"cfg": {
+				"ssid": "uSync-EAP",
+				"encryption": "wpa2",
+				"server": "192.168.1.1",
+				"port": 1812,
+				"auth_secret": "secret",
+				"mode": "ap",
+				"network": "lan"
+			}
+		}
+	],
+        "network": [
+                {
+                        "mode": "wan",
+                        "vlan": 200,
+			"cfg": {
+                                "proto": "dhcp"
+                        }
+                },                {
+                        "mode": "wan",
+                        "cfg": {
+                                "proto": "dhcp"
+                        }
+                }, {
+                        "mode": "lan",
+                        "cfg": {
+                                "proto": "static",
+                                "ipaddr": "192.168.11.11",
+                                "dhcp": {
+                                        "start": 10,
+                                        "limit": 100,
+                                        "leasetime": "6h"
+                                }
+			}
+                }, {
+                        "mode": "guest",
+                        "cfg": {
+                                "proto": "static",
+                                "ipaddr": "192.168.13.11",
+                                "dhcp": {
+                                        "start": 10,
+                                        "limit": 100,
+                                        "leasetime": "6h"
+                                }
+			}
+                }, {
+                        "mode": "guest",
+			"vlan": 200,
+                        "cfg": {
+                                "proto": "static",
+                                "ipaddr": "192.168.14.11",
+                                "dhcp": {
+                                        "start": 10,
+                                        "limit": 100,
+                                        "leasetime": "6h"
+                                }
+			}
+                }, {
+                        "mode": "nat",
+                        "cfg": {
+                                "proto": "static",
+                                "ipaddr": "192.168.15.1",
+                                "netmask": "255.255.255.0",
+                                "mtu": 1500,
+                                "ip6assign": 60,
+                                "dhcp": {
+                                        "start": 10,
+                                        "limit": 100,
+                                        "leasetime": "6h"
+                                }
+			}
+                 }, {
+                        "mode": "nat",
+			"vlan": 200,
+                        "cfg": {
+                                "proto": "static",
+                                "ipaddr": "192.168.16.1",
+                                "netmask": "255.255.255.0",
+                                "mtu": 1500,
+                                "ip6assign": 60,
+                                "dhcp": {
+                                        "start": 10,
+                                        "limit": 100,
+                                        "leasetime": "6h"
+                                },
+                                "leases": [
+                                        {
+                                                "ip": "192.168.100.2",
+                                                "mac": "00:11:22:33:44:55",
+                                                "hostname": "test"
+                                        }, {
+                                                "ip": "192.168.100.3",
+                                                "mac": "00:11:22:33:44:56",
+                                                "hostname": "test2"
+                                        }
+                                ]
+                        }
+                }
+        ]
+}

@@ -1,0 +1,26 @@
+{
+	"serial": "aabbccddeeff",
+	"venue": "Home",
+	"profile": "Services",
+	"override": {
+		"ssh": {
+			"enable": 1,
+			"Port": 22
+		}
+	},
+	"append": {
+		"ssid" : [
+			{
+				"name": "Main",
+				"band": [ "2", "5", "5l", "5u" ],
+				"cfg": {
+					"ssid": "uSync",
+					"encryption": "psk2",
+					"key": "WirelessFreedom",
+					"mode": "ap",
+					"network": "lan"
+				}
+			}
+		]		
+	}
+}
